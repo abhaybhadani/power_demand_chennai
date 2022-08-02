@@ -9,3 +9,5 @@ plotly
 pybase64
 Image
 statsmodels
+prophet
+statsmodels
