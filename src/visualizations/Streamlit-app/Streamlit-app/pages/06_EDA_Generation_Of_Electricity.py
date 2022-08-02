@@ -14,19 +14,18 @@ st.title("Electricity Power Outage Analysis")
 
 st.subheader("Dataset overview")
 
-st.text("Consumer and Consumption dataset")
+st.text("Electricity generation dataset")
 
 
 # EDA
 # To Improve speed and cache data
 @st.cache(persist=True)
-def load_data():
-	df = pd.read_csv ('data/electricity_consumption_consolidated.csv')
+def upload_data():
+	df = pd.read_csv ('data/Generation_Consolidated.csv')
 	return df 
 
 
-df = load_data()
-
+df = upload_data()
 
 # Show Dataset
 if st.checkbox("Preview DataFrame"):
@@ -64,12 +63,11 @@ if data_dim == 'Columns':
 st.text("check for null values")
 st.write(df.isnull())
 
-print(df.head())
 #visualization analysis of the data
 st.header("Visualization analysis of the data")
 fig = plt.figure(figsize=(10,5))
 sns.set_style('whitegrid')
-sns.countplot(x='Category',data=df)
+sns.countplot(x='Name',data=df)
 st.pyplot(fig)
 
 #histogram plot by year
@@ -78,20 +76,20 @@ fig, ax = plt.subplots()
 ax = df['Year'].hist(color='purple',bins=40,figsize=(10,4))
 st.pyplot(fig)
 
-#visual comparison between consumers and category
-st.text("Comparison between consumers and category")
+#visual comparison between Name and value
+st.text("Comparison between Name and value")
 fig = plt.figure(figsize=(10,5))
-sns.barplot(x="Category Id", y="Consumers", hue='Category',data=df)
+sns.barplot(x="Name", y="value", hue='Type',data=df)
 st.pyplot(fig)
 
-#line plot by comparing category id and consumers
-#st.text("Comparing category id and consumers")
-#fig, ax = plt.subplots(figsize=(9,7))
-#ax = sns.relplot(data=df ,x="Category Id",y="Consumers", kind="line", markers=True)
-#st.pyplot(fig)
+#line plot by comparing Name and value
+st.text("Comparing Name and value")
+fig, ax = plt.subplots(figsize=(9,7))
+ax = sns.relplot(data=df ,x="Name",y="value", kind="line", markers=True)
+st.pyplot(fig)
 
 st.title("Pairplot")
 fig, ax = plt.subplots(figsize=(9,7))
-fig = sns.pairplot(data=df, hue="Category")
+fig = sns.pairplot(data=df, hue="Name")
 st.pyplot(fig)
 

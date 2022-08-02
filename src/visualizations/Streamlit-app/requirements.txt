@@ -13,3 +13,4 @@ statsmodels==0.13.2
 streamlit-option-menu==0.3.2
 xgboost==1.6.1
 pybase64==1.2.2
+matplotlib==3.5.2
