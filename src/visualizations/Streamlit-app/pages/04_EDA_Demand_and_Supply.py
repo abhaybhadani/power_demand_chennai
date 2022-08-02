@@ -26,17 +26,17 @@ st.markdown('* The highest MW (17563.0) provided was in April 2022 but had a def
 # To Improve speed and cache data
 @st.cache(persist=True)
 @st.cache(allow_output_mutation=True)
-def load_data():
+def read01_data():
 	df_monthly = pd.read_csv('data/demand_supply_monthly.csv')
 	return df_monthly 
 
 
-df_monthly = load_data()
+df_monthly = read01_data()
 st.text("monthly data")
 st.write(df_monthly.head())
 st.write(df_monthly.info())
 
-df_yearly = df_monthly.groupby('Year').mean().reset_index()
+df_yearly = df_monthly.groupby('year').mean().reset_index()
 
 # drop unwamted columns
 df_yearly.drop(columns=['month', 'month_published', 'year_published'], inplace=True)

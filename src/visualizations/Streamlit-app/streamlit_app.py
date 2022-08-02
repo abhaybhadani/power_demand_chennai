@@ -241,13 +241,13 @@ elif selected == 'Team':
 
     st.markdown('• <a href="https://www.linkedin.com/in/vignesh-kanagasabapathi/">Vignesh</a>',
                 unsafe_allow_html=True)
-    st.markdown('• <a href="">Sudhakar</a>',
+    st.markdown('• <a href="https://www.linkedin.com/in/TSUDHAKARREDDY/">Sudhakar</a>',
                 unsafe_allow_html=True)
     st.markdown('• <a href="https://www.linkedin.com/in/tsombouchris/">Christian</a>',
                 unsafe_allow_html=True)
     st.markdown('• <a href="">Deepa</a>',
                 unsafe_allow_html=True)
-    st.markdown('• <a href="">Alagu Prakalya</a>',
+    st.markdown('• <a href="http://www.linkedin.com/in/alagu-prakalya-p/">Alagu Prakalya</a>',
                 unsafe_allow_html=True)
     st.markdown('• <a href="www.linkedin.com/in/kirthi-venkatesh-939442230">Kirthi</a>',
                 unsafe_allow_html=True)

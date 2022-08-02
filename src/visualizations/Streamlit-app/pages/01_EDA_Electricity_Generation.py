@@ -26,13 +26,14 @@ st.markdown('* Wind Mill & Solar from TNEB only supplied electricity in the year
 # EDA
 # To Improve speed and cache data
 @st.cache(persist=True)
-#@st.cache(allow_output_mutation=True)
-def load_data():
+@st.cache(allow_output_mutation=True)
+def get_data():
 	df = pd.read_csv('data/electricity_generation_consolidated_supply_only.csv')
 	return df 
 
 
-df = load_data()
+df = get_data()
+
 
 # Show Dataset
 if st.checkbox("Preview DataFrame"):
@@ -64,8 +65,6 @@ if data_dim == 'Columns':
 	st.text("Showing Length of Columns")
 	st.write(df.shape[1])
 
-print('df   *****  ')
-print(df.info())
 
 st.text("check for values count by type")
 st.write(df['Type'].value_counts())

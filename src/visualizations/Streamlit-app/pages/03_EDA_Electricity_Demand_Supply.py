@@ -37,12 +37,12 @@ st.markdown('* Percentage of shortages in MW - trend (Obs: The shortages rate pe
 @st.cache(allow_output_mutation=True)
 @st.cache(persist=True)
 
-def load_data():
+def read_data():
 	energy_ds = pd.read_csv('data/POSOCO_DEMAND_SUPPLY_TamilNadu.csv')
 	return energy_ds 
 
 
-energy_ds = load_data()
+energy_ds = read_data()
 
 st.write(energy_ds.head())
 st.write(energy_ds.info())
@@ -63,8 +63,6 @@ def extract_year (x):
         year = year_
     return year
 
-print('energy_ds info')
-print(energy_ds.info())
 
 # Extract the Year corresponding to the data presented
 energy_ds['year'] = energy_ds['name_report'].apply(extract_year)
