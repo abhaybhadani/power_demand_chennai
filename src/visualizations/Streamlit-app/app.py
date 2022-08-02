@@ -7,7 +7,7 @@ from streamlit_option_menu import option_menu
 import webbrowser
 
 os.system('ls -al')
-os.system('ls src/visualizations -al')
+os.system('ls src/visualizations/Streamlit-app/ -al')
 
 st.set_page_config(
     page_title="Power Outage Analysis in Chennai, Tamilnadu",
